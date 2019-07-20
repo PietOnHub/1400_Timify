@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable = no, minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="apple-touch-icon" sizes="120x120" href="img/touch-icon-iphone-retina.png">
+<link rel="apple-touch-icon" sizes="152x152" href="img/touch-icon-ipad-retina.png">
+
+<link rel="stylesheet" type="text/css" href="css/global.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/timer.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/msg.css" media="screen"/>
+
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
+<script src="js/timer.js"></script>
+<script src="js/localStore.js"></script>
+<script src="js/msg.js"></script>
+
+<link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+
+<title> workify </title>
+
+<script>
+
+$(document).ready(function () {
+
+
+
+    $("#button-log").on('click touchstart', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $('#timer-main').toggle(false);
+        $('#log-main').toggle(true);
+        getStorage();
+    });
+    $("#button-timer").on('click touchstart', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $('#timer-main').toggle(true);
+        $('#log-main').toggle(false);
+    });
+});
+
+</script>
+
+
+</head>
+
+<body>
+
+<div class="header">
+    <p id="title"> workify </p>
+</div>
+
+<div class="main" id="timer-main">
+
+<!--start of dynamic part -->
+
+<div class="timer-info">
+    <p id="timer-start"></p>
+    <p id="timer-end"></p>
+    <p class="clear"></p>
+
+    <p id="timer-status"></p>
+    <p id="timer-result"></p>
+</div>
+
+<div class="timer-panel">
+    <div id="timer-button-left"></div>
+    <div id="timer-button-right"></div>
+    <div class="clear"></div>
+</div>
+
+<ul>
+    <li class="timer-list" id="timer-submit">
+        Zeiterfassung eintragen
+    </li>
+    <li class="timer-list">
+        <a href="mailto:------"> Send Feedback </a>
+    </li>
+</ul>
+<div class="clear">  </div>
+
+<!--end of dynamic part -->
+
+</div>
+
+<div class="main" id="log-main">
+
+
+</div>
+
+<div class="footer">
+    <ul>
+        <li class="footer-button" id="button-timer">
+            <p>main</p>
+        </li>
+        <li class="footer-button" id="button-log">
+            <p>log</p>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
